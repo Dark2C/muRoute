@@ -39,8 +39,8 @@ MuRoute discovers routes by scanning PHP files inside the **routes directory**. 
 
 ### Basic Route
 ```
-//@route /hello
 <?php
+//@route /hello
 echo "Hello, world!";
 ```
 
@@ -48,25 +48,25 @@ echo "Hello, world!";
 MuRoute supports **dynamic parameters** using `:param`:
 
 ```
-//@route /user/:id
 <?php
+//@route /user/:id
 echo "User ID: " . $_REQUEST['id'];
 ```
 
 ### Route with Allowed HTTP Methods
 Different HTTP methods can be mapped to different files, allowing clear separation of logic:
 
+#### fetchUser.php
 ```
-// fetchUser.php
-//@route /user/:id [GET]
 <?php
+//@route /user/:id [GET]
 echo "Fetching user " . $_REQUEST['id'];
 ```
 
+#### updateUser.php
 ```
-// updateUser.php
-//@route /user/:id [POST]
 <?php
+//@route /user/:id [POST]
 echo "Updating user " . $_REQUEST['id'];
 ```
 
@@ -80,9 +80,9 @@ You can define an **authentication rule** inside your route file using `//@auth`
 
 ### Example: Protecting a Route
 ```
+<?php
 //@route /admin
 //@auth admin_only
-<?php
 echo "Welcome, Admin!";
 ```
 
